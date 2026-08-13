@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>.netrekrc — Netrek SDL2 config</title>
+<style>
+  :root{--bg:#05070a;--panel:#0d1219;--edge:#1d2b3a;--green:#39ff8b;--green-dim:#1e7f4c;--cyan:#4fd6ff;--amber:#ffcf4a;--text:#cfe6d8;--muted:#7d93a3;--red:#ff6b6b;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{background:var(--bg);color:var(--text);font-family:var(--mono);line-height:1.65;max-width:900px;margin:0 auto;padding:0 22px 90px}
+  a{color:var(--cyan);text-decoration:none} a:hover{text-decoration:underline}
+  h1,h2,h3{color:var(--green);line-height:1.3}
+  h1{font-size:1.9em;margin-top:.6em;text-shadow:0 0 22px rgba(57,255,139,.25)}
+  h2{margin-top:1.8em;border-bottom:1px solid var(--green-dim);padding-bottom:6px}
+  h3{margin-top:1.4em;color:#eafff2}
+  code,kbd{background:#0d1219;color:#eafff2;padding:1px 6px;border-radius:4px;font-family:var(--mono)}
+  pre{background:#0d1219;border:1px solid var(--edge);border-radius:8px;padding:14px 16px;overflow:auto}
+  pre code{background:none;padding:0}
+  table{border-collapse:collapse;width:100%;margin:12px 0;display:block;overflow:auto}
+  th,td{border:1px solid var(--edge);padding:6px 10px;text-align:left;vertical-align:top}
+  th{color:var(--green);font-weight:700}
+  .req{color:var(--amber);font-weight:700}
+  .card{background:#0a1017;border:1px solid var(--edge);border-radius:12px;padding:2px 20px 12px;margin:18px 0}
+  .warn{border-color:#5a4a10;background:#150f02}
+  .site-nav{position:sticky;top:0;z-index:9;background:#05070aee;backdrop-filter:blur(6px);border-bottom:1px solid var(--green-dim);
+    padding:13px 0;margin-bottom:26px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .site-nav a{color:var(--green);font-weight:700;letter-spacing:.04em}
+  .site-nav .sep{color:var(--muted)}
+  .muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="site-nav">
+  <a href="/">&#8592; NETREK @ Elevate</a><span class="sep">&#183;</span>
+  <a href="/newbie.html">Newbie Manual</a>
+  <a href="/manual.html">Reference</a>
+  <a href="/netrekrc.html">.netrekrc</a>
+</div>
+
+<h1>Configuring <code>.netrekrc</code></h1>
+<p class="muted">Client configuration for the <strong>Netrek SDL2</strong> Mac client (and COW-compatible clients).
+Full option list is in the <a href="/manual.html#Options">Reference Manual §7</a>; this page covers the settings that
+matter most for playing on <code>sturgeon.elevateconsulting.dev</code>.</p>
+
+<h2>Where it lives</h2>
+<p>The client reads a plain-text file named <code>.netrekrc</code> from your home directory:</p>
+<pre><code>~/.netrekrc</code></pre>
+<p>Each line is <code>key: value</code>. Lines starting with <code>#</code> are comments. Restart the client after editing.</p>
+
+<div class="card warn">
+<h3>Required for this server</h3>
+<table>
+<tr><th>Setting</th><th>Value</th><th>Why</th></tr>
+<tr><td><code>tryShort</code></td><td class="req">off</td>
+    <td>With short packets on, the client's variable-length packet parser can desync the receive stream on this server
+    (you reach the team screen, then the galaxy freezes). Turning it off is required.</td></tr>
+</table>
+</div>
+
+<h2>Connecting</h2>
+<pre><code>server:    sturgeon.elevateconsulting.dev
+port:      2592
+name:      yourname
+password:  yourpassword     # optional; for a registered pilot</code></pre>
+<p class="muted">You can also pass the server on the command line: <code>-h sturgeon.elevateconsulting.dev -p 2592</code>.
+Remember the server is IP-restricted &mdash; email <a href="mailto:dave@elevateconsulting.dev">dave@elevateconsulting.dev</a>
+to be whitelisted first.</p>
+
+<h2>Sound</h2>
+<table>
+<tr><th>Setting</th><th>Values</th><th>Notes</th></tr>
+<tr><td><code>sound</code></td><td>on / off</td><td>Master switch for effects <em>and</em> the startup intro music.</td></tr>
+<tr><td><code>soundMusic</code></td><td>on / off</td><td>Startup intro / theme music only.</td></tr>
+<tr><td><code>soundVolume</code></td><td>0&ndash;128</td><td>Master volume.</td></tr>
+</table>
+
+<h2>Galactic map &amp; planets</h2>
+<p>Options that make target planets easier to read at a glance:</p>
+<table>
+<tr><th>Setting</th><th>Values</th><th>What it does</th></tr>
+<tr><td><code>agriCAPS</code></td><td>on / off</td><td>Draw AGRI (fast army-growth) planet names in UPPERCASE on the galactic map.</td></tr>
+<tr><td><code>agriColor</code></td><td>1&ndash;3</td><td>Color of AGRI names &mdash; <code>1</code>=white, <code>2</code>=yellow, <code>3</code>=grey (else the planet's own color).</td></tr>
+<tr><td><code>showArmy</code></td><td>0&ndash;3</td><td>Draw the army count next to planets you have info on &mdash; <code>0</code>=off, <code>1</code>=local map, <code>2</code>=galactic, <code>3</code>=both.</td></tr>
+<tr><td><code>showgalactic</code></td><td>0&ndash;4</td><td>Galactic planet view: <code>0</code>=owner color, <code>1</code>=resource icons (army/repair/fuel overlays), <code>2</code>=standard, <code>3</code>=MOO, <code>4</code>=rabbit-ears.</td></tr>
+<tr><td><code>showIND</code></td><td>on / off</td><td>Mark independent (unowned) planets with an X.</td></tr>
+</table>
+
+<h2>Weapons display</h2>
+<table>
+<tr><th>Setting</th><th>Values</th><th>What it does</th></tr>
+<tr><td><code>phaserShrink</code></td><td>0&ndash;16</td><td>Shortens <em>your</em> drawn phaser beam from the ship outward. <code>0</code>=full length; higher values draw only the far end (e.g. <code>11</code> starts the beam ~70% out). Cosmetic.</td></tr>
+<tr><td><code>theirPhaserShrink</code></td><td>0&ndash;16</td><td>Same, for enemy phasers.</td></tr>
+</table>
+
+<h2>Keymap &amp; mouse</h2>
+<p>Remap keys and mouse buttons with <code>keymap</code> and <code>buttonmap</code> &mdash; a string of
+<em>action / key</em> pairs. Example (swap tractor and pressor onto <kbd>t</kbd>/<kbd>g</kbd>):</p>
+<pre><code>keymap:    tygT</code></pre>
+<p class="muted">Format: pairs of <code>&lt;newkey&gt;&lt;action&gt;</code>. See <a href="/manual.html#Options">Reference Manual §3 (Command Reference)</a>
+for every action letter and the default bindings.</p>
+
+<h2>A working starter file</h2>
+<pre><code># ~/.netrekrc  — Netrek SDL2 on the Elevate STURGEON server
+server:        sturgeon.elevateconsulting.dev
+port:          2592
+name:          guest
+
+tryShort:      off      # REQUIRED for this server
+
+sound:         on
+soundMusic:    off       # effects yes, startup jingle no
+
+agriCAPS:      on
+agriColor:     2         # yellow
+showArmy:      3         # army counts on both maps
+showgalactic:  1         # resource icons on the galactic
+phaserShrink:  0         # full-length phaser beams</code></pre>
+
+<h2 id="report">Something wrong? Tell us</h2>
+<p>If a setting doesn't behave the way this page says on the Mac client, that's a bug we want to hear about.
+See <a href="https://github.com/ElevateConsultingDev/netrek-clients/issues/new/choose" target="_blank" rel="noopener">how to report it</a>
+&mdash; include your <code>.netrekrc</code>, what you expected, and what happened.</p>
+
+<p class="muted" style="margin-top:40px">Full option reference: <a href="/manual.html">COW Reference Manual</a> &middot;
+New to the game? <a href="/newbie.html">Newbie Manual</a></p>
+</body>
+</html>
