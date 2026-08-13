@@ -1,0 +1,68 @@
+name: "🐛 Bug report"
+description: "Something in Netrek COM (the Mac client) doesn't work"
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! The more of this you fill in, the faster it gets fixed.
+        Not sure about a field? Leave it blank and describe what you can.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What were you doing, and what went wrong?
+      placeholder: "e.g. When I maximize the window and fire torps, they go to the wrong spot."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+      placeholder: "Torps should fire toward the cursor."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Launch and connect
+        2. Maximize the window
+        3. Click to fire toward a target
+        4. ...
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "e.g. macOS 15.5"
+    validations:
+      required: true
+  - type: dropdown
+    id: chip
+    attributes:
+      label: Mac type
+      options:
+        - Apple Silicon (M-series)
+        - Intel
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Client version
+      description: Shown on the team-select screen.
+      placeholder: "Netrek COM 0.9"
+  - type: textarea
+    id: netrekrc
+    attributes:
+      label: Your ~/.netrekrc (relevant lines)
+      render: text
+  - type: textarea
+    id: output
+    attributes:
+      label: Console output / logs
+      description: "Run from Terminal and paste output. For input issues, run with NETREK_INPUT_DEBUG=1 and attach /tmp/netrek-input.log."
+      render: text

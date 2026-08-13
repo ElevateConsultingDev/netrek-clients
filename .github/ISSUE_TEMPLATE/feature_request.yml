@@ -1,0 +1,17 @@
+name: "💡 Feature / improvement"
+description: "Suggest something for Netrek COM"
+title: "[idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Describe the feature or improvement and why it'd help.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: Prior art in other clients (COW, netrekxp), mockups, links, etc.

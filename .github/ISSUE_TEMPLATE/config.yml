@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📧 Email the maintainer
+    url: mailto:dave@elevateconsulting.dev
+    about: For server whitelisting, private questions, or anything that isn't a public bug.
+  - name: 📖 .netrekrc config guide
+    url: https://netrek.elevateconsulting.dev/netrekrc.html
+    about: Before filing a config issue, check the settings reference.
+  - name: 🌐 Netrek community
+    url: https://www.netrek.org/
+    about: General Netrek info, other clients, docs and history.
