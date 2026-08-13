@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STURGEON — ship upgrades &amp; special weapons</title>
+<meta name="description" content="What STURGEON is: the Netrek variant that lets you spend kills on persistent ship upgrades and special weapons. Full guide.">
+<style>
+  :root{--bg:#05070a;--panel:#0d1219;--panel2:#111926;--edge:#1d2b3a;--green:#39ff8b;--green-dim:#1e7f4c;--cyan:#4fd6ff;--amber:#ffcf4a;--text:#cfe6d8;--muted:#7d93a3;--red:#ff6b6b;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{background:var(--bg);color:var(--text);font-family:var(--mono);line-height:1.65;max-width:920px;margin:0 auto;padding:0 22px 90px}
+  a{color:var(--cyan);text-decoration:none} a:hover{text-decoration:underline}
+  h1,h2,h3{color:var(--green);line-height:1.3}
+  h1{font-size:2em;margin:.5em 0 .1em;text-shadow:0 0 22px rgba(57,255,139,.28)}
+  .sub{color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-size:12.5px;margin-bottom:1.4em}
+  h2{margin-top:2em;border-bottom:1px solid var(--green-dim);padding-bottom:6px}
+  h3{margin-top:1.5em;color:#eafff2;font-size:1.05em}
+  code,kbd{background:#0d1219;color:#eafff2;padding:1px 6px;border-radius:4px;font-family:var(--mono)}
+  kbd{border:1px solid var(--edge);box-shadow:0 1px 0 #000}
+  pre{background:#0d1219;border:1px solid var(--edge);border-radius:8px;padding:14px 16px;overflow:auto}
+  table{border-collapse:collapse;width:100%;margin:12px 0;display:block;overflow:auto}
+  th,td{border:1px solid var(--edge);padding:6px 11px;text-align:left;vertical-align:top}
+  th{color:var(--green)}
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--edge);border-radius:12px;padding:4px 22px 16px;margin:20px 0}
+  .lede{font-size:1.08em;color:var(--text)}
+  .key{color:var(--amber);font-weight:700}
+  .muted{color:var(--muted)}
+  .site-nav{position:sticky;top:0;z-index:9;background:#05070aee;backdrop-filter:blur(6px);border-bottom:1px solid var(--green-dim);
+    padding:13px 0;margin-bottom:24px;display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+  .site-nav a{color:var(--green);font-weight:700;letter-spacing:.04em}
+  .site-nav .sep{color:var(--muted)}
+  .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;border:1px solid var(--green-dim);color:var(--green)}
+  ol.tree{list-style:none;padding-left:0}
+  ol.tree>li{border:1px solid var(--edge);border-radius:10px;padding:12px 16px;margin:10px 0;background:#0a1017}
+  ol.tree>li>b{color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="site-nav">
+  <a href="/">&#8592; NETREK @ Elevate</a><span class="sep">&#183;</span>
+  <a href="/newbie.html">Newbie Manual</a>
+  <a href="/manual.html">Reference</a>
+  <a href="/netrekrc.html">.netrekrc</a>
+  <a href="/sturgeon.html">STURGEON</a>
+</div>
+
+<h1>STURGEON</h1>
+<div class="sub">Ship upgrades &amp; special weapons &nbsp;·&nbsp; what this server runs</div>
+
+<p class="lede">In ordinary Netrek every ship of a given type is identical. <strong>STURGEON</strong> changes that:
+you <strong>spend your kills</strong> to buy <strong>permanent upgrades</strong> and <strong>special weapons</strong> that make
+<em>your</em> ship stronger and stick with you from life to life. Rack up kills, refit, and turn credit into shields, faster
+torps, plasmas, nukes &mdash; and keep flying a ship you built.</p>
+
+<div class="card">
+<h3>The idea in one paragraph</h3>
+<p>Kills are currency. Each kill adds to your <em>upgrade credit</em>. At a repair/home planet you <strong>refit</strong> to open
+the upgrade menu and spend that credit on things like stronger shields, a hotter phaser, more fuel, cloak, or an arsenal of
+special weapons. Upgrades <strong>persist across deaths</strong> &mdash; up to a cap tied to your <strong>rank</strong>. The better
+you play, the more monster your ship becomes.</p>
+</div>
+
+<h2>The currency: kills</h2>
+<ul>
+<li>Every kill you earn accumulates <strong>upgrade credit</strong>.</li>
+<li>Each upgrade has a price measured <strong>in kills</strong> &mdash; a base cost plus more for every level you've already
+bought of it (so the 3rd shield boost costs more than the 1st).</li>
+<li>There's a <strong class="key">rank cap</strong>: the total you can hold in upgrades is limited by your rank. Rank up and you
+can carry more. Spend beyond your rank and, when you die, you'll <strong>lose upgrades</strong> back down to what your rank
+supports (winning by genocide/conquer lets you keep everything).</li>
+<li>Starbases carry <strong>no</strong> upgrades &mdash; refitting to a base clears them.</li>
+</ul>
+<p class="muted">Exact prices are shown in-game: open the upgrade menu &rarr; <b>Misc</b> &rarr; <b>current status</b> to see every
+upgrade you own and the kill cost of the next one.</p>
+
+<h2>How to upgrade</h2>
+<ol>
+<li>Get near a <strong>repair</strong> or your <strong>home</strong> planet (where you can refit).</li>
+<li>Start a <strong>refit</strong>. The client shows the upgrade menu as messages (lines beginning <code>UPG-&gt;</code>).</li>
+<li>Navigate with the <strong class="key">number keys 0&ndash;9</strong> &mdash; while you're in the upgrade menu, the
+number keys pick menu options (0 always aborts/backs out).</li>
+<li>Drill into a category, pick an item, and your credit is spent. Repeat until you're out of credit or done.</li>
+</ol>
+<p class="muted">On the Netrek Client of Mac, make sure your message window is visible so you can read the whole menu (it's a
+two-line prompt).</p>
+
+<h2>The upgrade menu</h2>
+<p>Top level: <code>1=normal refit, 2=shields/hull, 3=engines, 4=weapons, 5=special weapons, 6=one time, 7=misc</code>
+(<code>0</code> aborts). Each opens a sub-menu:</p>
+
+<ol class="tree">
+<li><b>2 &mdash; Shields / Hull</b><br>
+  <code>1</code> permanent shield &nbsp;·&nbsp; <code>2</code> temporary shield &nbsp;·&nbsp; <code>3</code> permanent hull.
+  <div class="muted">Tougher to kill: more shield capacity and hull.</div></li>
+<li><b>3 &mdash; Engines</b><br>
+  <code>1</code> fuel &nbsp;·&nbsp; <code>2</code> recharge &nbsp;·&nbsp; <code>3</code> max warp &nbsp;·&nbsp;
+  <code>4</code> acceleration &nbsp;·&nbsp; <code>5</code> deceleration &nbsp;·&nbsp; <code>6</code> cooling.
+  <div class="muted">Go faster, turn/stop quicker, hold more fuel, and run cooler.</div></li>
+<li><b>4 &mdash; Weapons</b><br>
+  <code>1</code> phaser damage &nbsp;·&nbsp; <code>2</code> torp speed &nbsp;·&nbsp; <code>3</code> torp fuse (range) &nbsp;·&nbsp;
+  <code>4</code> weapon cooling.
+  <div class="muted">Hit harder and reach further before your weapons overheat.</div></li>
+<li><b>5 &mdash; Special weapons</b> &mdash; buy the arsenal below.
+  (<code>5</code> = inventory, to see what you're carrying.)</li>
+<li><b>6 &mdash; One time</b><br>
+  <code>1</code> fire while cloaked &nbsp;·&nbsp; <code>2</code> detonate your own torps for damage.
+  <div class="muted">Permanent trick unlocks &mdash; bought once.</div></li>
+<li><b>7 &mdash; Misc</b><br>
+  <code>1</code> cloak &nbsp;·&nbsp; <code>2</code> tractor strength &nbsp;·&nbsp; <code>3</code> tractor range &nbsp;·&nbsp;
+  <code>4</code> repair rate &nbsp;·&nbsp; <code>5</code> current status &nbsp;·&nbsp; <code>6</code> undo next upgrade.
+  <div class="muted"><b>current status</b> lists what you own and next costs; <b>undo</b> refunds the last upgrade.</div></li>
+</ol>
+
+<h2>Special weapons</h2>
+<p>Beyond torps and phasers, STURGEON lets you buy limited-ammo heavy weapons. Select/toggle your active special weapon with
+the <strong class="key">coup key</strong> (<kbd>Shift</kbd>+<kbd>C</kbd>) and fire it. Each costs fuel to launch.</p>
+<table>
+<tr><th>Weapon</th><th>Variants</th><th>What it is</th></tr>
+<tr><td><strong>Plasmas</strong></td><td>Type&nbsp;1&ndash;5, plus pseudoplasma</td>
+    <td>Big, slow, high-damage guided torpedoes. Higher types hit harder. Pseudoplasma is a decoy.</td></tr>
+<tr><td><strong>Nukes</strong></td><td>10 / 20 / 50 / 100 megaton</td>
+    <td>Warheads with a large blast radius &mdash; small, medium, big, huge. Area devastation.</td></tr>
+<tr><td><strong>Suicide drones</strong></td><td>&mdash;</td>
+    <td>Launch-and-forget attack drones (high fuel cost).</td></tr>
+<tr><td><strong>Mines</strong></td><td>&mdash;</td>
+    <td>Drop persistent mines that damage whoever runs into them.</td></tr>
+</table>
+<p class="muted">Special weapons are ammo-limited &mdash; you buy a quantity in the upgrade menu (<b>5 = special weapons</b>) and
+check what's left with <b>inventory</b>. The server god can disable special weapons; if so you'll be told when you try.</p>
+
+<h2>Dying, ranks &amp; keeping your ship</h2>
+<ul>
+<li>Upgrades you can <strong>afford within your rank</strong> stay with you when you die &mdash; you respawn already kitted out.</li>
+<li>If you've over-extended (more upgrades than your rank credit), dying <strong>strips</strong> upgrades until you're back
+under the cap. So rank matters: it's both your budget and your insurance.</li>
+<li><strong>Winning the galaxy</strong> (genocide or conquer) lets you keep <em>everything</em>, over-cap or not.</li>
+</ul>
+
+<h2>On this server</h2>
+<p>The Elevate server runs <span class="badge">STURGEON + NEWBIE</span> &mdash; the full upgrade system, with robots filling out
+the game so there's always someone to kill (and to fund your upgrades). Connect, rack up kills, refit, and build your ship.</p>
+<p class="muted" style="margin-top:26px">Connect + client setup: <a href="/">home</a> &middot;
+New to Netrek itself? Start with the <a href="/newbie.html">Newbie Manual</a> &middot;
+Every key &amp; option: <a href="/manual.html">Reference</a>.</p>
+</body>
+</html>
