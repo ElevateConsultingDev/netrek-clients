@@ -74,6 +74,40 @@ supports (winning by genocide/conquer lets you keep everything).</li>
 <p class="muted">Exact prices are shown in-game: open the upgrade menu &rarr; <b>Misc</b> &rarr; <b>current status</b> to see every
 upgrade you own and the kill cost of the next one.</p>
 
+<h2>Exact costs, in kills</h2>
+<p>Every upgrade's price is <code>base + (levels already owned) &times; step</code>, paid in kills. The first level costs
+the base; each further level adds the step. These come straight from the server's own cost tables:</p>
+<table>
+<tr><th>Upgrade</th><th>1st level</th><th>+ per level</th></tr>
+<tr><td colspan="3" style="color:var(--green)"><strong>Shields / Hull</strong></td></tr>
+<tr><td>Permanent shield</td><td>1.0</td><td>+0.2</td></tr>
+<tr><td>Permanent hull</td><td>1.5</td><td>+0.5</td></tr>
+<tr><td>Temporary shield</td><td>free</td><td>&mdash; (lost each life)</td></tr>
+<tr><td colspan="3" style="color:var(--green)"><strong>Engines</strong></td></tr>
+<tr><td>Fuel capacity</td><td>0.5</td><td>+0.1</td></tr>
+<tr><td>Recharge rate</td><td>1.0</td><td>+1.5</td></tr>
+<tr><td>Max warp</td><td>2.0</td><td>+1.0</td></tr>
+<tr><td>Acceleration</td><td>0.5</td><td>+0.1</td></tr>
+<tr><td>Deceleration</td><td>0.5</td><td>+0.1</td></tr>
+<tr><td>Engine cooling</td><td>1.0</td><td>+0.5</td></tr>
+<tr><td colspan="3" style="color:var(--green)"><strong>Weapons</strong></td></tr>
+<tr><td>Phaser damage</td><td>1.0</td><td>+1.5</td></tr>
+<tr><td>Torp speed</td><td>2.0</td><td>+3.0</td></tr>
+<tr><td>Torp fuse (range)</td><td>0.5</td><td>+0.5</td></tr>
+<tr><td>Weapon cooling</td><td>1.0</td><td>+1.5</td></tr>
+<tr><td colspan="3" style="color:var(--green)"><strong>Misc</strong></td></tr>
+<tr><td>Cloak</td><td>2.0</td><td>+1.0</td></tr>
+<tr><td>Tractor strength</td><td>1.0</td><td>+0.5</td></tr>
+<tr><td>Tractor range</td><td>1.0</td><td>+1.5</td></tr>
+<tr><td>Repair rate</td><td>1.0</td><td>+1.0</td></tr>
+<tr><td colspan="3" style="color:var(--green)"><strong>One-time unlocks</strong></td></tr>
+<tr><td>Fire while cloaked</td><td>5.0</td><td>one-time</td></tr>
+<tr><td>Detonate own torps for damage</td><td>5.0</td><td>one-time</td></tr>
+</table>
+<p class="muted">So a first phaser boost is one kill; a first torp-speed boost is two, and the <em>next</em> one is five (2.0 + 3.0).
+Cheap, spammable upgrades (fuel, accel) climb slowly; the powerful ones climb fast. The in-game <b>current status</b> screen
+always shows your live next-cost.</p>
+
 <h2>How to upgrade</h2>
 <ol>
 <li>Get near a <strong>repair</strong> or your <strong>home</strong> planet (where you can refit).</li>
