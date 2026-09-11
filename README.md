@@ -6,13 +6,21 @@ long-standing Windows/X11 client, COM is the Mac counterpart: same battle-tested
 netrek core, a new SDL2 rendering + input backend, and a look that's sharp on a
 Retina display.
 
-**Download (macOS, Apple Silicon):** [Netrek COM 0.9](https://github.com/ElevateConsultingDev/netrek-clients/releases/latest/download/netrek-com-0.9-macos-arm64.zip) — unzip and drag to Applications. Nothing else to install: SDL2 and its
-dependencies ship inside the app.
+## Install (macOS, Apple Silicon)
 
-It will not open the first time, because it is not notarized. Go to **System Settings →
-Privacy & Security**, scroll down, click **Open Anyway**, then open it again. Or run
-`xattr -dr com.apple.quarantine "/Applications/Netrek COM.app"`. On macOS 15+ the old
-right-click → Open trick no longer works.
+Paste this into Terminal. A `curl` download never picks up the quarantine flag, so macOS
+raises no warning and nothing else needs installing:
+
+```sh
+curl -L https://github.com/ElevateConsultingDev/netrek-clients/releases/latest/download/netrek-com-0.9-macos-arm64.zip -o /tmp/netrek.zip \
+  && ditto -x -k /tmp/netrek.zip /Applications \
+  && xattr -cr "/Applications/Netrek COM.app" \
+  && open "/Applications/Netrek COM.app"
+```
+
+Downloaded it in a browser instead? macOS blocks it with *"Apple could not verify ... is free
+of malware"*, which means the app is not notarized, not that anything is wrong with it. Run
+`xattr -cr "/Applications/Netrek COM.app"` and open it again.
 
 **Play / server info:** https://netrek.elevateconsulting.dev
 
