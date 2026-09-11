@@ -6,6 +6,9 @@ long-standing Windows/X11 client, COM is the Mac counterpart: same battle-tested
 netrek core, a new SDL2 rendering + input backend, and a look that's sharp on a
 Retina display.
 
+**Download (macOS, Apple Silicon):** [Netrek COM 0.9](https://github.com/ElevateConsultingDev/netrek-clients/releases/latest/download/netrek-com-0.9-macos-arm64.zip) — unzip, drag to Applications, and on first launch right-click the app and choose **Open**
+(the app is ad-hoc signed, not notarized). Nothing else to install.
+
 **Play / server info:** https://netrek.elevateconsulting.dev
 
 This repo is the home of Netrek COM. It also carries the upstream COW sources it
