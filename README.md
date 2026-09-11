@@ -13,10 +13,16 @@ raises no warning and nothing else needs installing:
 
 ```sh
 curl -L https://github.com/ElevateConsultingDev/netrek-clients/releases/latest/download/netrek-com-macos-arm64.zip -o /tmp/netrek.zip \
-  && ditto -x -k /tmp/netrek.zip /Applications \
-  && xattr -cr "/Applications/Netrek COM.app" \
-  && open "/Applications/Netrek COM.app"
+  && mkdir -p ~/Applications \
+  && rm -rf ~/Applications/"Netrek COM.app" \
+  && ditto -x -k /tmp/netrek.zip ~/Applications \
+  && xattr -cr ~/Applications/"Netrek COM.app" \
+  && open ~/Applications/"Netrek COM.app"
 ```
+
+This installs into `~/Applications`, your own applications folder, which needs no admin
+rights. Writing to the system `/Applications` fails on recent macOS with `Operation not
+permitted` unless Terminal is granted App Management permission.
 
 Downloaded it in a browser instead? macOS blocks it with *"Apple could not verify ... is free
 of malware"*, which means the app is not notarized, not that anything is wrong with it. Run
