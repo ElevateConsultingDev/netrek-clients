@@ -12,7 +12,7 @@ Paste this into Terminal. A `curl` download never picks up the quarantine flag, 
 raises no warning and nothing else needs installing:
 
 ```sh
-curl -L https://github.com/ElevateConsultingDev/netrek-clients/releases/latest/download/netrek-com-0.9-macos-arm64.zip -o /tmp/netrek.zip \
+curl -L https://github.com/ElevateConsultingDev/netrek-clients/releases/latest/download/netrek-com-macos-arm64.zip -o /tmp/netrek.zip \
   && ditto -x -k /tmp/netrek.zip /Applications \
   && xattr -cr "/Applications/Netrek COM.app" \
   && open "/Applications/Netrek COM.app"
